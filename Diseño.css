@@ -153,16 +153,16 @@ button:hover {
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 3;
-  max-width: 100%;  /* La imagen puede ocupar hasta el 100% del contenedor */
-  max-height: 100vh;  /* La altura de la imagen no excederá la altura visible de la pantalla */
+  max-width: 95%;  /* Aumentar el tamaño para que ocupe más espacio */
+  max-height: 90vh;  /* Limita la altura a un 90% de la altura de la pantalla */
   overflow: auto;  /* Si la imagen es más grande que la pantalla, se podrá desplazar */
-  padding: 20px;  /* Añadir un poco de espacio para que no toque los bordes */
-  box-sizing: border-box;  /* Asegura que el padding no afecte el tamaño */
+  padding: 10px;  /* Añadimos un pequeño espacio */
+  box-sizing: border-box;  /* Para que el padding no afecte el tamaño de la imagen */
 }
 
 /* Estilo de la imagen */
 .imagen img {
-  width: 100%;  /* La imagen ocupará todo el ancho de su contenedor */
+  width: 100%;  /* La imagen ocupará el 100% del ancho de su contenedor */
   height: auto;  /* Mantendrá su proporción original */
   object-fit: contain;  /* Asegura que la imagen se ajuste sin deformarse */
   border-radius: 15px;
@@ -194,13 +194,13 @@ button:hover {
 /* Para tabletas y pantallas más grandes */
 @media (max-width: 768px) {
   .imagen {
-    max-width: 100%;  /* Ajusta el contenedor al 100% del ancho de la pantalla */
-    max-height: 85vh;  /* Limita la altura al 85% de la pantalla */
+    max-width: 100%;
+    max-height: 80vh;  /* Ajustamos la altura para dispositivos de tamaño medio */
   }
 
   .imagen img {
-    width: 100%;  /* Asegura que la imagen ocupe el 100% de su contenedor */
-    height: auto;  /* Mantiene la proporción original */
+    width: 100%;
+    height: auto;
   }
 }
 
@@ -208,11 +208,11 @@ button:hover {
 @media (max-width: 480px) {
   .imagen {
     max-width: 100%;
-    max-height: 75vh;  /* Limita la altura al 75% de la pantalla en móviles pequeños */
+    max-height: 75vh;  /* Limita la altura para pantallas más pequeñas */
   }
 
   .imagen img {
-    width: 100%;  /* Asegura que la imagen ocupe todo el ancho disponible */
+    width: 100%;
     height: auto;
   }
 
