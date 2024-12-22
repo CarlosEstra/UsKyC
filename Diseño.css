@@ -188,6 +188,8 @@ button:hover {
 }
 
 /* Media Queries para dispositivos móviles */
+
+/* Para tabletas y pantallas más grandes */
 @media (max-width: 768px) {
   h1 {
     font-size: 28px;
@@ -217,6 +219,7 @@ button:hover {
   }
 }
 
+/* Para dispositivos móviles */
 @media (max-width: 480px) {
   h1 {
     font-size: 24px;
