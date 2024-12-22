@@ -1,21 +1,247 @@
-/* Imagen que aparece cuando se abre el sobre */
+/* Fondo romántico con colores pastel */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(135deg, #f8c9e5, #e0bbf4, #a2d8c5, #ffb6c1); /* Colores pastel variados */
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.fondo {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.titulo-container {
+  position: absolute;
+  top: 10%;
+  text-align: center;
+}
+
+h1 {
+  font-size: 36px;
+  color: #ff6f91;
+  font-weight: bold;
+  z-index: 2;
+  transition: opacity 0.5s ease;
+}
+
+.subtitulo {
+  font-size: 24px;
+  color: #ff6f91;
+  margin-top: 10px;
+  z-index: 2;
+  font-family: 'Arial', sans-serif;
+  transition: opacity 0.5s ease;
+  line-height: 1.5;
+}
+
+.fondo p {
+  margin: 0;
+  padding: 5px 0;
+  text-align: center;
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  margin-top: 150px;
+}
+
+.sobre {
+  width: 300px;
+  height: 200px;
+  background-color: #f3f3f3;
+  position: relative;
+  cursor: pointer;
+  transition: transform 1s ease, box-shadow 0.3s ease;
+  display: block;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  border: 2px solid #ffb6c1; 
+}
+
+.sobre:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  transform: translateY(-5px);
+}
+
+.sobre-flap {
+  width: 100%;
+  height: 120px;
+  background-color: #ffb6c1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+  transition: all 1s ease;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.sobre-cuerpo {
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.codigo {
+  padding: 10px;
+  border: 2px solid #ffb6c1;
+  border-radius: 12px;
+  margin-top: 15px;
+  width: 200px;
+  font-size: 16px;
+  text-align: center;
+  outline: none;
+}
+
+.codigo:focus {
+  border-color: #ff6f91;
+}
+
+button {
+  background-color: #ff6f91;
+  color: white;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 12px;
+  margin-top: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: block;
+  width: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+button:hover {
+  background-color: #ff476e;
+}
+
+.sobre.abierto .sobre-flap {
+  transform: rotateX(-180deg);
+  transform-origin: top;
+}
+
+.sobre.abierto .sobre-cuerpo {
+  transform: scaleY(0);
+  opacity: 0;
+}
+
+/* Contenedor de la imagen con desplazamiento */
 .imagen {
-  display: none;
+  display: none;  /* Por defecto, la imagen está oculta */
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 3;
-  max-width: 90%; /* Limita el ancho máximo al 90% del contenedor */
-  max-height: 90%; /* Limita la altura máxima al 90% del contenedor */
+  width: 90%;  /* Ajusta el ancho al 90% del contenedor */
+  max-height: 90vh;  /* Limita la altura al 90% de la pantalla */
+  overflow: auto;  /* Permite desplazamiento cuando el contenido excede el tamaño */
 }
 
+/* Estilo de la imagen */
 .imagen img {
-  width: 100%;
-  height: auto;
-  max-width: 100%;  /* Asegura que la imagen no se salga del contenedor */
-  max-height: 100%; /* Asegura que la imagen no se salga del contenedor */
-  object-fit: contain; /* Mantiene la imagen dentro de su contenedor sin deformarla */
+  width: 100%;  /* Ajusta el ancho de la imagen al 100% del contenedor */
+  height: auto;  /* Mantiene la proporción original de la imagen */
+  object-fit: contain;  /* Asegura que la imagen se ajuste sin deformarse */
   border-radius: 15px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.atrasBtn {
+  position: fixed;
+  bottom: 10%;
+  right: 5%;
+  padding: 10px 20px;
+  background-color: #ff6f91;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: none;
+  z-index: 4;
+}
+
+.atrasBtn:hover {
+  background-color: #ff476e;
+}
+
+/* Media Queries para dispositivos móviles */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 28px;
+  }
+
+  .subtitulo {
+    font-size: 20px;
+  }
+
+  .sobre {
+    width: 250px;
+    height: 180px;
+  }
+
+  .codigo {
+    width: 160px;
+  }
+
+  .imagen {
+    width: 100%;
+    height: 100%;
+  }
+
+  .imagen img {
+    max-width: 90%;
+    max-height: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 24px;
+  }
+
+  .subtitulo {
+    font-size: 18px;
+  }
+
+  .sobre {
+    width: 220px;
+    height: 160px;
+  }
+
+  .codigo {
+    width: 140px;
+  }
+
+  .imagen img {
+    max-width: 80%;
+    max-height: 80%;
+  }
+
+  .atrasBtn {
+    font-size: 16px;
+    padding: 8px 15px;
+  }
 }
