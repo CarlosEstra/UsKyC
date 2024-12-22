@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mensaje para mi novia</title>
+  <link rel="stylesheet" href="Diseño.css">
+</head>
+<body>
+  <!-- Fondo romántico -->
+  <div class="fondo">
+    <!-- Título con todo el contenido dentro -->
+    <div class="titulo-container">
+      <h1 id="titulo">Hola mi princesita</h1>
+      <p class="subtitulo">Para ti </p>
+      <p class="subtitulo">Pon nuestra fecha<3</p>
+    </div>
+    
+    <!-- Contenedor con el sobre -->
+    <div class="container">
+      <!-- Sobre -->
+      <div class="sobre" id="sobre">
+        <div class="sobre-flap"></div>
+        <div class="sobre-cuerpo">
+          <div class="candado" id="candado">
+            <div class="candado-imagen" id="candado-img"></div>
+            <input type="text" id="codigo" class="codigo" placeholder="Ponla aqui amor jeje" />
+            <button id="abrirBtn">Abrir</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Imagen (que aparece cuando se abre el sobre) -->
+      <div class="imagen" id="imagen">
+        <img src="Episodio 1.png" alt="Episodio 1" />
+      </div>
+
+      <!-- Botón "Atrás" para volver a intentar, inicialmente oculto -->
+      <button id="atrasBtn" class="atrasBtn" style="display: none;">Atrás</button>
+    </div>
+  </div>
+
+  <script src="Carta.js"></script>
+</body>
+</html>

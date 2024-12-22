@@ -1,0 +1,192 @@
+/* Fondo romántico con colores pastel */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(135deg, #f8c9e5, #e0bbf4, #a2d8c5, #ffb6c1); /* Colores pastel variados */
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.fondo {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.titulo-container {
+  position: absolute;
+  top: 10%;
+  text-align: center;
+}
+
+h1 {
+  font-size: 36px;
+  color: #ff6f91; /* Color romántico para el título */
+  font-weight: bold;
+  z-index: 2;
+  transition: opacity 0.5s ease;
+}
+
+.subtitulo {
+  font-size: 24px;
+  color: #ff6f91; /* Color pastel para subtítulo */
+  margin-top: 10px;
+  z-index: 2;
+  font-family: 'Arial', sans-serif;
+  transition: opacity 0.5s ease;
+  line-height: 1.5; /* Ajuste de altura de línea para mejorar la legibilidad */
+}
+
+.subtitulo:nth-child(2) {
+  margin-top: 15px;
+}
+
+/* Ajuste de la posición de los textos debajo del título */
+.fondo p {
+  margin: 0;
+  padding: 5px 0;
+  text-align: center;
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  margin-top: 150px; /* Espacio entre el título y el sobre */
+}
+
+/* Estilo del sobre clásico con bordes y detalles */
+.sobre {
+  width: 300px;
+  height: 200px;
+  background-color: #f3f3f3;
+  position: relative;
+  cursor: pointer;
+  transition: transform 1s ease, box-shadow 0.3s ease;
+  display: block;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  border: 2px solid #ffb6c1; 
+}
+
+.sobre:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); /* Efecto hover */
+  transform: translateY(-5px);
+}
+
+.sobre-flap {
+  width: 100%;
+  height: 120px;
+  background-color: #ffb6c1; /* Rosa suave para la tapa */
+  position: absolute;
+  top: 0;
+  left: 0;
+  clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+  transition: all 1s ease;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.sobre-cuerpo {
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.codigo {
+  padding: 10px;
+  border: 2px solid #ffb6c1;
+  border-radius: 12px;
+  margin-top: 15px;
+  width: 200px;
+  font-size: 16px;
+  text-align: center;
+  outline: none;
+}
+
+.codigo:focus {
+  border-color: #ff6f91;
+}
+
+/* Posición del botón "Abrir" debajo del campo de texto */
+button {
+  background-color: #ff6f91;
+  color: white;
+  padding: 8px 15px; /* Haciendo el botón más pequeño */
+  border: none;
+  border-radius: 12px;
+  margin-top: 20px; /* Espacio entre el campo de texto y el botón */
+  cursor: pointer;
+  transition: background-color 0.3s;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: block;
+  width: auto; /* Ajuste para que el botón no ocupe todo el ancho */
+  margin-left: auto;
+  margin-right: auto; /* Centrado del botón */
+}
+
+button:hover {
+  background-color: #ff476e;
+}
+
+/* Animación para abrir el sobre */
+.sobre.abierto .sobre-flap {
+  transform: rotateX(-180deg);
+  transform-origin: top;
+}
+
+.sobre.abierto .sobre-cuerpo {
+  transform: scaleY(0);
+  opacity: 0;
+}
+
+/* Imagen que aparece cuando se abre el sobre */
+.imagen {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+}
+
+.imagen img {
+  width: 600px;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Botón "Atrás" para volver a intentar */
+.atrasBtn {
+  position: fixed;
+  bottom: 10%;
+  right: 5%;
+  padding: 10px 20px;
+  background-color: #ff6f91;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: none;
+  z-index: 4;
+}
+
+.atrasBtn:hover {
+  background-color: #ff476e;
+}
